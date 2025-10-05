@@ -1,0 +1,216 @@
+<!--
+  @file        index.html
+  @project     Smalltalk Speech Therapy — Single-Page Website
+  @description Single static page matching the provided reference mock:
+               - Mauve hero with logo + script heading + subtitle
+               - "Our Services" in three centered columns with circular icons
+               - Out-of-network note centered under Services
+               - Two-column About with circular headshot placeholder
+               - Bottom mauve CTA band with email / phone block
+               - Sticky top nav (mobile hamburger), smooth anchors
+               - Clickable phone + obfuscated email (hydrated by JS)
+               - Basic SEO/social meta + JSON-LD
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Smalltalk Speech Therapy — Pediatric Speech &amp; Feeding Therapy in Northwest Arkansas</title>
+    <meta name="description" content="Child-centered speech & feeding therapy in your home. In-home services in Bentonville, Bella Vista, Centerton, and Pea Ridge; telehealth throughout Arkansas.">
+
+    <!-- Icons / social (placeholders; paths are relative) -->
+    <link rel="icon" href="assets/img/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" sizes="180x180">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Smalltalk Speech Therapy — Pediatric Speech &amp; Feeding Therapy in Northwest Arkansas">
+    <meta property="og:description" content="In-home services in Bentonville, Bella Vista, Centerton, Pea Ridge; telehealth across Arkansas.">
+    <meta property="og:image" content="assets/img/social-share.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fonts (to approximate the script/serif styling from the reference) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- JSON-LD LocalBusiness schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Smalltalk Speech Therapy",
+      "areaServed": ["Northwest Arkansas", "Bentonville", "Bella Vista", "Centerton", "Pea Ridge"],
+      "telephone": "+14173556148",
+      "email": "gina@smalltalknwa.com",
+      "url": "https://example.com"
+    }
+    </script>
+
+    <!-- Noscript CSS so the nav stays visible if JS is disabled -->
+    <noscript>
+      <style>
+        #primary-nav { display: block !important; position: static !important; border: none !important; }
+        .menu-toggle { display: none !important; }
+      </style>
+    </noscript>
+  </head>
+
+  <body>
+    <!-- Skip link for keyboard users -->
+    <a class="skip-link" href="#home">Skip to content</a>
+
+    <!-- Header / Sticky Nav -->
+    <header class="site-header" role="banner">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Smalltalk Speech (Home)">
+          Smalltalk Speech
+        </a>
+
+        <!-- Mobile menu toggle (<= 1023px) -->
+        <button class="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu" title="Menu">
+          <span class="visually-hidden">Menu</span>
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" focusable="false">
+            <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main / Hero -->
+    <main id="home" class="section section-hero" role="main" aria-label="Hero">
+      <div class="container hero-inner">
+        <!-- Logo mark to match reference (chat bubble + heart) -->
+        <div class="logo-mark" aria-hidden="true">
+            <img src="assets/img/smalltalk_logo_final.png" decoding="async"/>
+          </div>
+        </div>
+
+        <h1 class="hero-title">Smalltalk Speech</h1>
+        <p class="lead hero-subtitle">Child-centered speech &amp; feeding therapy in your home</p>
+      </div>
+    </main>
+
+    <!-- Services -->
+    <section id="services" class="section section-services" aria-labelledby="services-heading">
+      <div class="container">
+        <h2 id="services-heading" class="center">Our Services</h2>
+        <p class="lead services-intro center">
+          We offer in-home services in Bentonville, Bella Vista, Centerton, and Pea Ridge, and
+          telehealth services throughout Arkansas.
+        </p>
+
+        <div class="services-grid plain" role="list">
+          <!-- Evaluations -->
+          <article class="service" role="listitem">
+            <div class="circle-icon" aria-hidden="true">
+              <i class="fas fa-seedling" aria-hidden="true"></i>
+            </div>
+            <h3 class="service-title">Evaluations</h3>
+            <div class="ornament-line" aria-hidden="true"></div>
+            <p class="service-text">Evaluations are the first step in getting to know your child. Through play, family input, and standardized assessment, we assess your child’s strengths and areas to support. Afterward, we’ll create an individualized plan of care, share our findings, and discuss next steps to support your child’s growth.</p>
+          </article>
+
+          <!-- Speech Therapy -->
+          <article class="service" role="listitem">
+            <div class="circle-icon" aria-hidden="true">
+                <i class="fas fa-comment-dots" aria-hidden="true"></i>
+            </div>
+            <h3 class="service-title">Speech Therapy</h3>
+            <div class="ornament-line" aria-hidden="true"></div>
+            <p class="service-text">In speech therapy, we use child-directed play and structured activities to help your child build communication skills. Sessions are personalized to your child’s needs. We’ll partner with you to practice developing skills at home and support lasting progress across settings.</p>
+          </article>
+
+          <!-- Feeding Therapy -->
+          <article class="service" role="listitem">
+            <div class="circle-icon" aria-hidden="true">
+              <i class="fas fa-utensils" aria-hidden="true"></i>
+            </div>
+            <h3 class="service-title">Feeding Therapy</h3>
+            <div class="ornament-line" aria-hidden="true"></div>
+            <p class="service-text">In feeding therapy, we help your child enjoy mealtimes and feel more comfortable with eating. We focus on building oral motor skills, expanding food repertoire, and building positive mealtime routines. We encourage family involvement in feeding therapy to facilitate lasting progress across all contexts.</p>
+          </article>
+        </div>
+
+        <p class="lead oot-note center">
+          Please note that we are considered an out-of-network provider with all insurances. We can help you seek reimbursement through your out-of-network benefits.
+        </p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section-about" aria-labelledby="about-heading">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2 id="about-heading" class="about-title">Gina Mortensen</h2>
+          <h3 id="about-heading" class="about-subtitle">M.A., CCC-SLP, CLC</h3>
+          <p>Gina is a bilingual (Spanish-English) speech-language pathologist. She has more than 6 years of experience supporting children with communication and feeding disorders. Gina has specialized training in the SOS Approach to Feeding, Language Acquisition through Motor Planning (LAMP), Beckman Oral Motor Assessment &amp; Intervention, Hanen More Than Words, and Dynamic Temporal and Tactile Cueing (DTTC). She holds a certificate in Early Intervention through Georgetown University and is a Certified Lactation Counselor (CLC).</p>
+        </div>
+
+        <!-- Circular headshot placeholder (swap with real image if available) -->
+        <div class="about-photo-wrap">
+          <div class="headshot" role="img" aria-label="Portrait of Gina Mortensen">
+            <img src="assets/img/headshot.jpg" alt="Portrait of [name]" decoding="async"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA / Contact Band -->
+    <section id="contact" class="cta-band" aria-labelledby="contact-heading">
+      <div class="container cta-grid">
+        <h2 id="contact-heading" class="cta-title">Reach out to schedule a free consultation</h2>
+        <div class="cta-line" aria-hidden="true"></div>
+        <div class="cta-card">
+          <div class="contact-row">
+            <div class="contact-icon" aria-hidden="true">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="contact-detail">
+              <div class="label">EMAIL</div>
+              <div class="value">
+                <span class="ob-email" data-user="gina" data-domain="smalltalknwa.com"></span>
+                <noscript><span>gina at smalltalknwa dot com</span></noscript>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon" aria-hidden="true">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+            </div>
+            <div class="contact-detail">
+              <div class="label">PHONE</div>
+              <div class="value">
+                <a class="tel" href="tel:+18584143122">(858) 414-3122</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <p class="muted small"><span data-year></span> Smalltalk Speech Therapy NWA &nbsp;|&nbsp; Serving Northwest Arkansas: Bentonville, Bella Vista, Centerton, Pea Ridge.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+# robots.txt for Smalltalk Speech Therapy — Single-Page Website
+User-agent: *
+Allow: /
