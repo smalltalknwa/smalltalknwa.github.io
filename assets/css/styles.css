@@ -267,7 +267,7 @@ a:hover, a:focus { text-decoration: underline; }
   --r: clamp(90px, 30vw, 200px);        /* top semicircle radius */
   --body: calc(var(--r) * 2);           /* keep original proportion (body = 2 * r) */
   --br: clamp(12px, 3vw, 16px);         /* bottom corner radius scales a touch */
-  --overlap: max(6px, calc(var(--r) * 0.1)); /* prevents a seam on small sizes */
+  --overlap: calc(var(--r) * 0.1); /* prevents a seam on small sizes */
 
   width: calc(var(--r) * 2);
   height: calc(var(--r) + var(--body));
@@ -312,11 +312,21 @@ a:hover, a:focus { text-decoration: underline; }
   color: var(--white);
   padding-block: var(--space-8);
 }
+/* CTA divider: hidden on stacked (mobile/tablet), shown on wide screens */
+.cta-line { display: none; }
+
 .cta-grid {
   display: grid; gap: var(--space-6); align-items: center;
 }
 @media (min-width: 960px) {
   .cta-grid { grid-template-columns: 1.2fr .1fr 1fr; }
+  .cta-line {
+    display: block;
+    width: 1px;
+    height: clamp(120px, 18vw, 180px);
+    margin: 0 auto;
+    background: var(--line-200);
+  }
 }
 
 .cta-title {
@@ -324,11 +334,6 @@ a:hover, a:focus { text-decoration: underline; }
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
-}
-
-.cta-line {
-  width: 1px; height: 180px; background: var(--line-200);
-  margin: 0 auto 0;
 }
 
 .cta-card {
