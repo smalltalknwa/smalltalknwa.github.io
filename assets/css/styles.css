@@ -226,6 +226,7 @@ a:hover, a:focus { text-decoration: underline; }
 .oot-note {
   max-width: 880px;
   margin: var(--space-7) auto 0;
+  font-size: 1.25rem;
 }
 
 /* ABOUT */
