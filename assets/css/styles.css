@@ -261,40 +261,23 @@ a:hover, a:focus { text-decoration: underline; }
 .about-text p { font-size: 1.25rem; }
 
 .about-photo-wrap { display: grid; place-items: center; }
-/* Tombstone-shaped headshot */
+/* Tombstone headshot — seam-proof via border-radius */
 .headshot{
-/* geometry (scales with viewport width) */
-  --r: clamp(90px, 30vw, 200px);        /* top semicircle radius */
-  --body: calc(var(--r) * 2);           /* keep original proportion (body = 2 * r) */
-  --br: clamp(12px, 3vw, 16px);         /* bottom corner radius scales a touch */
-  --overlap: calc((var(--r) * 0.1 + 1px)); /* prevents a seam on small sizes */
+  /* responsive geometry */
+  --r: clamp(90px, 30vw, 200px);  /* top semicircle radius (half the width) */
+  --br: clamp(12px, 3vw, 16px);   /* bottom corner radius */
 
-  width: calc(var(--r) * 2);
-  height: calc(var(--r) + var(--body));
+  width:  calc(var(--r) * 2);           /* width = 2r */
+  height: calc(var(--r) * 2.75); /* total height */
 
-  /* exact tombstone mask */
-  -webkit-mask:
-    /* semicircle cap */
-    radial-gradient(var(--r) at 50% var(--r), #000 99.6%, #0000 100%) top/100% var(--r) no-repeat,
-    /* body (extend upward a few px to overlap) */
-    linear-gradient(#000 0 0) bottom/100% calc(var(--body) - var(--br) + var(--overlap)) no-repeat,
-    /* bottom-left rounded corner */
-    radial-gradient(var(--br) at var(--br) calc(100% - var(--br)), #000 99.6%, #0000 100%) bottom left/var(--br) var(--br) no-repeat,
-    /* bottom-right rounded corner */
-    radial-gradient(var(--br) at calc(100% - var(--br)) calc(100% - var(--br)), #000 99.6%, #0000 100%) bottom right/var(--br) var(--br) no-repeat;
-  mask:
-    radial-gradient(var(--r) at 50% var(--r), #000 99.6%, #0000 100%) top/100% var(--r) no-repeat,
-    linear-gradient(#000 0 0) bottom/100% calc(var(--body) - var(--br) + var(--overlap)) no-repeat,
-    radial-gradient(var(--br) at var(--br) calc(100% - var(--br)), #000 99.6%, #0000 100%) bottom left/var(--br) var(--br) no-repeat,
-    radial-gradient(var(--br) at calc(100% - var(--br)) calc(100% - var(--br)), #000 99.6%, #0000 100%) bottom right/var(--br) var(--br) no-repeat;
+  /* this creates a perfect semicircle top when width = 2r */
+  border-top-left-radius:  var(--r) var(--r);
+  border-top-right-radius: var(--r) var(--r);
+  border-bottom-left-radius:  var(--br);
+  border-bottom-right-radius: var(--br);
 
-  /* ensure union (no holes) */
-  -webkit-mask-composite: source-over, source-over, source-over;
-  mask-composite: add, add, add;
-
-  /* visuals */
   overflow: hidden;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10); /* keep your shadow */
 }
 
 /* image fill */
