@@ -263,11 +263,11 @@ a:hover, a:focus { text-decoration: underline; }
 .about-photo-wrap { display: grid; place-items: center; }
 /* Tombstone-shaped headshot */
 .headshot{
-  /* geometry */
-  --r: 200px;          /* top semicircle radius = width/2 */
-  --body: 400px;       /* rectangular body height */
-  --br: 16px;          /* bottom corner radius */
-  --overlap: 20px;      /* small overlap to avoid seam */
+/* geometry (scales with viewport width) */
+  --r: clamp(90px, 30vw, 200px);        /* top semicircle radius */
+  --body: calc(var(--r) * 2);           /* keep original proportion (body = 2 * r) */
+  --br: clamp(12px, 3vw, 16px);         /* bottom corner radius scales a touch */
+  --overlap: max(6px, calc(var(--r) * 0.1)); /* prevents a seam on small sizes */
 
   width: calc(var(--r) * 2);
   height: calc(var(--r) + var(--body));
